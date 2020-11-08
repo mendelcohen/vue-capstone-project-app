@@ -28,6 +28,7 @@
       <!-- <button v-on:click="updateUser()">Save</button> -->
       <input type="submit" class="btn btn-primary" value="update">
       <h1>Delete your account</h1>
+      <button v-on:click="deleteAccount()">Delete your account</button>
     </form>
   </div>
     
@@ -62,13 +63,13 @@ export default {
         password_confirmation: this.user.password_confirmation
       };
       axios.patch(`/api/users/${this.user.id}`, params).then(response => {
-        this.$router.push(`/user-update/${this.user.id}`);
+        this.$router.push("/user-show");
       }).catch(error => {
         this.errors = error.reponse.data.errors;
       });
     },
-    destroyPost: function () {
-      if (confirm("Are you sure you want to delete this post?")) {
+    deleteAccount: function () {
+      if (confirm("Are you sure you want to delete your account?")) {
         axios.delete(`/api/users/${this.user.id}`).then(response => {
           console.log("Success", response.data); 
           this.$router.push("/signup");
@@ -78,3 +79,5 @@ export default {
   }
 };
 </script>
+
+// /${this.user.id}`
