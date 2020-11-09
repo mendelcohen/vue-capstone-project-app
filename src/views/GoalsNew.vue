@@ -1,0 +1,107 @@
+<template>
+  <div class="goals-new">
+    <form v-on:submit.prevent="submit()">
+      <h1>Your new SMART goal!</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+          
+      <div class="form-group">
+        <label>Select a category for your goal:</label> 
+        <select name="category" id="category" v-model="category">
+          <option value="Feelings">Feelings</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>
+          
+      </div>
+      <div class="form-group">
+        <label>Give your goal a name:</label> 
+        <input type="text" class="form-control" v-model="name">
+        <small>Max. 25 characters</small>
+      </div>
+
+      <p style="float:left;width:50%">Specific<br><br>Measurable<br><br>Achievable<br><br>Relevant<br><br>Timetable</p>
+      
+      <div class="form-group">
+        <label>Describe your SMART goal using the prompts:</label> 
+       
+      <form style="float:right;width:50%" action="/action_page.php">
+        <textarea name="goal-description" rows="16" cols="100" wrap="hard" style='white-space:pre;' placeholder="My goal is to... 
+
+
+I will do this...
+
+
+I have succeeded when...
+
+
+This goal is challenging because...
+
+
+Succeeding will..." v-model="description">  </textarea>
+        
+      </form>
+        <!-- <input type="text" class="form-control" v-model="goal" value="My goal is to  I will do this when"> -->
+      </div>
+      <div class="form-group">
+        <label>Start date:</label>
+        <input type="date" class="form-control" v-model="begin_date">
+      </div>
+      <br>
+      <div class="form-group">
+        <label>End date:</label>
+        <input type="date" class="form-control" v-model="end_date">
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Upload an image that inspires you to achieve your goal:</label>
+        <input type="image-upload" class="form-control" v-model="image_url">
+      </div>
+      
+      <label>You are ready to begin. Good luck!</label>
+      <input type="submit" class="btn btn-primary" value="Save">
+    </form>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data: function() {
+    return {
+      category: "",
+      goal_name: "",
+      description: "",
+      begin_date: "",
+      end_date: "",
+      image_url: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        category: this.category,
+        goal_name: this.goal_name,
+        description: this.description,
+        begin_date: this.begin_date,
+        end_date: this.end_date,
+        image_url: this.image_url
+      };
+      axios
+        .post("/api/goals", params)
+        .then(response => {
+          this.$router.push("/goals-show");
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+        });
+    }
+  }
+};
+</script>
