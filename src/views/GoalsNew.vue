@@ -6,46 +6,31 @@
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
           
-      <div class="form-group">
+      <div class="form-group"> 
         <label>Select a category for your goal:</label> 
-        <select name="category" id="category" v-model="category">
-          <option value="Feelings">Feelings</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+        <select name="category" v-model="category">
+          <option v-for="category in categories">{{ category.id }}</option>
         </select>
-          
       </div>
+
       <div class="form-group">
         <label>Give your goal a name:</label> 
         <input type="text" class="form-control" v-model="name">
         <small>Max. 25 characters</small>
       </div>
 
-      <p style="float:left;width:50%">Specific<br><br>Measurable<br><br>Achievable<br><br>Relevant<br><br>Timetable</p>
+      <p>Specific: What is your goal and when will you work on it?<br><br>Measurable: When can you say you have achieved your goal?<br><br>Achievable: What makes this goal challenging for you?<br><br>Relevant: How will you benefit when you succeed?<br><br>Timetable: </p>
       
       <div class="form-group">
         <label>Describe your SMART goal using the prompts:</label> 
        
-      <form style="float:right;width:50%" action="/action_page.php">
-        <textarea name="goal-description" rows="16" cols="100" wrap="hard" style='white-space:pre;' placeholder="My goal is to... 
-
-
-I will do this...
-
-
-I have succeeded when...
-
-
-This goal is challenging because...
-
-
-Succeeding will..." v-model="description">  </textarea>
+      <form action="/action_page.php">
+      
+        <textarea name="goal-description" rows="16" cols="100" wrap="hard" v-model="description">  
+        </textarea>
         
       </form>
-        <!-- <input type="text" class="form-control" v-model="goal" value="My goal is to  I will do this when"> -->
+        
       </div>
       <div class="form-group">
         <label>Start date:</label>
@@ -74,8 +59,9 @@ import axios from "axios";
 export default {
   data: function() {
     return {
+      categories: [],
       category: "",
-      goal_name: "",
+      name: "",
       description: "",
       begin_date: "",
       end_date: "",
@@ -83,11 +69,17 @@ export default {
       errors: []
     };
   },
+  created: function () {
+    axios.get("api/categories").then(response => {
+      console.log(response.data);
+      this.categories = response.data;
+    });
+  },  
   methods: {
     submit: function() {
       var params = {
-        category: this.category,
-        goal_name: this.goal_name,
+        category_id: parseInt(this.category),
+        name: this.name,
         description: this.description,
         begin_date: this.begin_date,
         end_date: this.end_date,
