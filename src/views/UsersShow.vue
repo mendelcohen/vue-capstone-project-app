@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     toEditPage: function () {
-      this.$router.push("/user-update");
+      this.$router.push("/users/:id/edit");
     }
   }
 };

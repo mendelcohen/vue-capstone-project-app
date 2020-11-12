@@ -4,13 +4,13 @@ import Home from '../views/Home.vue';
 import Signup from '../views/Signup.vue';
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-import UserShow from "../views/UserShow.vue";
-import UserUpdate from "../views/UserUpdate.vue";
+import UsersShow from "../views/UsersShow.vue";
+import UsersEdit from "../views/UsersEdit.vue";
 import GoalsIndex from "../views/GoalsIndex.vue";
 import GoalsNew from "../views/GoalsNew.vue";
 import GoalsShow from "../views/GoalsShow.vue";
-import GoalsUpdate from "../views/GoalsUpdate.vue";
-import StepsUpdate from "../views/StepsUpdate.vue";
+import GoalsEdit from "../views/GoalsEdit.vue";
+import StepsEdit from "../views/StepsEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: '/signup',
-    name: 'Signup',
+    name: 'signup',
     component: Signup
   },
   { 
@@ -39,39 +39,39 @@ const routes = [
     component: Login 
   },
   { 
-    path: "/user-show", 
-    name: "user-show", 
-    component: UserShow 
+    path: "/users/:id", 
+    name: "users-show", 
+    component: UsersShow 
   },
   { 
-    path: "/user-update", 
-    name: "user-update", 
-    component: UserUpdate
+    path: "/users/:id/edit", 
+    name: "users-edit", 
+    component: UsersEdit
   },
   { 
-    path: "/goals-index", 
+    path: "/goals", 
     name: "goals-index", 
     component: GoalsIndex
   },
   { 
-    path: "/goals-new", 
+    path: "/goals/new", 
     name: "goals-new", 
     component: GoalsNew
   },
   { 
-    path: "/goals-show", 
+    path: "/goals/:id", 
     name: "goals-show", 
     component: GoalsShow
   },
   { 
-    path: "/goals-update", 
-    name: "goals-update", 
-    component: GoalsUpdate
+    path: "/goals/:id/edit", 
+    name: "goals-edit", 
+    component: GoalsEdit
   },
   { 
-    path: "/steps-update", 
-    name: "steps-update", 
-    component: StepsUpdate
+    path: "/steps/id:/edit", 
+    name: "steps-edit", 
+    component: StepsEdit
   },
   { 
     path: "/logout", 
