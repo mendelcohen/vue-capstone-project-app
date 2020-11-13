@@ -9,7 +9,7 @@
       <div class="form-group"> 
         <label>Select a category for your goal:</label> 
         <select name="category" v-model="goal.category">
-          <!-- <option v-for="goal in goal" selected> {{ goal.category.name }} </option> -->
+          <option selected disabled>{{ goal.category }}</option>
           <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
         </select>
       </div>

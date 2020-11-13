@@ -1,17 +1,16 @@
 <template>
   <div class="goals-index">
     <div v-for="category in categories"><p>{{ category.name }} </p>
-      <div :value="goal" v-for="category in categories">
-        <button v-on:click="goalsShow()">
-          <p>{{ category.user_goals }}</p>
-        </button>
+      <div v-for="goal in goals">
+        <router-link :to="`/goals/${goal.id}`">
+          <div v-if="goal.category == category.name">
+            <p>{{ goal.name }}</p>
+            <p>{{ goal.begin_date }}-{{ goal.begin_date }}</p>
+          </div>
+        </router-link>
       </div>
-    
     </div>
- 
   </div>
-
- 
 </template>
 
 <script>
@@ -21,7 +20,7 @@ export default {
   data: function() {
     return {
       categories: [],
-      // goals: [],
+      goals: [],
       goal: {},
       errors: []
     };
@@ -31,17 +30,11 @@ export default {
       console.log(response.data);
       this.categories = response.data;
     });
-    // axios.get("api/goals").then(response => {
-    //   console.log(response.data);      
-    //   this.goals = response.data;
-    // });
+    axios.get("api/goals").then(response => {
+      console.log(response.data);      
+      this.goals = response.data;
+    });
   },  
-  methods: {
-    goalsShow: function () {
-      axios.get(`api/goals/${this.goal.id}`).then(response => {
-        this.$router.push(`/goals/${this.goal.id}`);
-      });
-    }
-  }
+  methods: {}
 };
 </script>

@@ -2,14 +2,16 @@
   <div class="goals-show">
     <h1>Goal: {{ goal.name }}</h1>
     <h2>Category: {{ goal.category }}</h2>
+     <p> From: {{ goal.begin_date }}  Until: {{ goal.end_date }} </p>
     <h3>SMART Description</h3>      
     <p> {{ goal.description }} </p>
-    <img :src="goal.image_url" alt="">
-    <p> From: {{ goal.begin_date }}  Until: {{ goal.end_date }} </p> 
+    <img :src="goal.image_url" alt=""> 
     <button v-on:click="editGoal">Edit goal</button>
 
     <h2>Achievements</h2>
-      <div v-for="step in goal.steps"> <button v-on:click="editStep()">{{ step }}</button></div>
+      <div v-for="step in goal.steps"> 
+        <router-link :to="`/steps/${step.id}/edit`">{{ step.date }} <br> {{ step.comment }}</router-link>
+      </div>
       <p>Click on a step to edit</p>
       <br>
       <form>
@@ -23,6 +25,7 @@
           <input type="integer" value=""> 
         </div>
         <div class="form-group">
+          <label>Comment:</label>
           <textarea name="step-comment" id="" cols="30" rows="10" v-model="comment"></textarea>
         </div>
         <button v-on:click="addStep()">I took a step towards achieving my goal</button>
@@ -39,7 +42,6 @@ export default {
     return {
       goal: {},
       date: "",
-      goal_id: "",
       comment: "",
       errors: []
     };
@@ -61,13 +63,10 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    editStep: function () {
-      this.$router.push(`/steps/${this.response.data.steps.this.step.id}/edit`);
-    },
     addStep: function() {
       var params = {
         date: this.date,
-        goal_id: this.goal_id,
+        goal_id: this.goal.id,
         comment: this.comment
       };
       axios.post("/api/steps", params).then(response => {
