@@ -39,12 +39,12 @@ const routes = [
     component: Login 
   },
   { 
-    path: "/users/:id", 
+    path: "/users/me", 
     name: "users-show", 
     component: UsersShow 
   },
   { 
-    path: "/users/:id/edit", 
+    path: "/users/me/edit", 
     name: "users-edit", 
     component: UsersEdit
   },
@@ -69,7 +69,7 @@ const routes = [
     component: GoalsEdit
   },
   { 
-    path: "/steps/id:/edit", 
+    path: "/steps/:id/edit", 
     name: "steps-edit", 
     component: StepsEdit
   },

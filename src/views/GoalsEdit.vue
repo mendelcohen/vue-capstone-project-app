@@ -8,8 +8,7 @@
 
       <div class="form-group"> 
         <label>Select a category for your goal:</label> 
-        <select name="category" v-model="goal.category">
-          <option selected disabled>{{ goal.category }}</option>
+        <select name="category" v-model="goal.category_id">
           <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
         </select>
       </div>
@@ -79,7 +78,7 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        category_id: this.goal.category,
+        category_id: this.goal.category_id,
         name: this.goal.name,
         description: this.goal.description,
         begin_date: this.goal.begin_date,

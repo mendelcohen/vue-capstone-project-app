@@ -7,7 +7,7 @@
       </ul>
 
       <div >
-        <p>{{ step.goal.name }}</p>
+        <p>{{ step.goal }}</p>
       </div>
 
       <div class="form-group">
@@ -54,7 +54,7 @@ export default {
       axios
         .patch(`/api/steps/${this.step.id}`, params)
         .then(response => {
-          this.$router.push(`/goals/${this.step.goal.id}`);
+          this.$router.push(`/goals/${this.step.goal_id}`);
         })
         .catch(error => {
           this.errors = error.response.data.errors;
@@ -64,7 +64,7 @@ export default {
       if (confirm("Are you sure you want to delete this step?")) {
         axios.delete(`/api/steps/${this.step.id}`).then(response => {
           console.log("Success", response.data);
-          this.$router.push(`/goals/${this.step.goal.id}`);
+          this.$router.push(`/goals/${this.step.goal_id}`);
         });
       }
     }

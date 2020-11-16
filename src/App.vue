@@ -1,17 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
       <router-link to="/signup">Signup</router-link> |
       <router-link to="/login">Login</router-link> |
-      <router-link to="/users/:id">User Profile</router-link> |
-      <router-link to="/users/:id/edit">Edit Profile</router-link> |
+      <router-link to="/users/me">User Profile</router-link> |
+      <router-link to="/users/me/edit">Edit Profile</router-link> |
       <router-link to="/goals">Goals Index</router-link> |
       <router-link to="/goals/new">Goals New</router-link> |
-      <router-link to="/goals/:id">Goals Show</router-link> |
-      <router-link to="/goals/:id/edit">Goals Update</router-link> |
-      <router-link to="/steps/:id/edit">Steps Update</router-link> |
       <router-link to="/logout">Logout</router-link>
     </div>
     <router-view/>

@@ -25,7 +25,7 @@ export default {
     };
   },
   created: function() {
-    axios.get(`/api/users/${this.$route.params.id}`).then(response => {
+    axios.get(`/api/users/me`).then(response => {
       console.log(response.data);
       this.user = response.data;
     });
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     toEditPage: function () {
-      this.$router.push("/users/:id/edit");
+      this.$router.push("/users/me/edit");
     }
   }
 };
