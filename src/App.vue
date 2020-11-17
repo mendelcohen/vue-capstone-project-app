@@ -1,37 +1,71 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/signup">Signup</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/users/me">User Profile</router-link> |
-      <router-link to="/users/me/edit">Edit Profile</router-link> |
-      <router-link to="/goals">Goals Index</router-link> |
-      <router-link to="/goals/new">Goals New</router-link> |
-      <router-link to="/logout">Logout</router-link>
+    <div class="bussiness-main-menu-1x">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="business-main-menu">
+              <nav
+                class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu"
+              >
+                <a class="navbar-brand" href="#">
+                  <img
+                    src="images/logo-dark.png"
+                    class="d-inline-block align-top"
+                    alt=""
+                  />
+                </a>
+
+                <div
+                  class="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav ml-auto business-nav">
+                    <li class="nav-item">
+                      <router-link to="/login" class="nav-link" href="#"
+                        >Login</router-link
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/signup" class="nav-link" href="#"
+                        >Signup</router-link
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/users/me" class="nav-link" href="#"
+                        >My Profile</router-link
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/users/me/edit" class="nav-link" href="#"
+                        >Edit Profile</router-link
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/goals" class="nav-link"
+                        >Goals Index</router-link
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/goals/new" class="nav-link" href="#"
+                        >Goals New</router-link
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <router-link to="/logout" class="nav-link" href="#"
+                        >Logout</router-link
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>

@@ -1,25 +1,182 @@
 <template>
   <div class="goals-show">
-    <canvas id="myChart" width="200" height="200"></canvas>
-    <div>{{ goalDays }}</div>
-    <h1>Goal: {{ goal.name }}</h1>
+    <!-- Preloader -->
+    <div id="fakeloader"></div>
+
+    <div class="business-banner">
+      <div class="hvrbox">
+        <img
+          src="/images/slider-24.jpg"
+          alt="Mountains"
+          class="hvrbox-layer_bottom"
+        />
+        <div class="hvrbox-layer_top">
+          <div class="container">
+            <div class="overlay-text text-left">
+              <h3>{{ goal.name }}</h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    {{ goal.category }}
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    {{ this.begin_date }} - {{ this.end_date }}
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bussiness-about-company blog-list-layout">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="padding-top-large"></div>
+
+            <div class="blog-post-author">
+              <div class="media">
+                <img :src="goal.image_url" alt="Client One" />
+                <div class="media-body">
+                  <a href="#">SMART Description</a>
+                  <p>
+                    {{ goal.description }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="business-cta-right-2">
+                <router-link
+                  :to="`/goals/${goal.id}/edit`"
+                  class="bussiness-btn-larg"
+                  >Edit Goal<i class="fa fa-angle-right"></i
+                ></router-link>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="padding-top-large"></div>
+            <div class="about-company-right">
+              <div class="company-help-box text-center">
+                <canvas id="myChart" width="200" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="padding-top-large"></div> -->
+
+          <!-- <div class="col-md-4">
+            <div class="business-cta-right-2">
+              <a href="#" class="bussiness-btn-larg"
+                >Get a Quote <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+          </div> -->
+
+          <!-- <form v-on:submit.prevent="addStep()">
+            <h2>New Step</h2>
+            <div class="form-group">
+              <label>Date:</label>
+              <input type="date" value="date.new" v-model="date" />
+            </div>
+            <div class="form-group">
+              <label>Day number:</label>
+              <input type="integer" value="" />
+            </div>
+            <div class="form-group">
+              <label>Comment:</label>
+              <textarea id="" cols="30" rows="10" v-model="comment"></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Create Step" />
+          </form> -->
+
+          <form v-on:submit.prevent="addStep()">
+            <div class="business-contact-form">
+              <h2>New Step</h2>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="date" value="date.new" v-model="date" />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <textarea
+                      class="form-control"
+                      rows="5"
+                      placeholder="Write your comment"
+                      v-model="comment"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <input
+                    type="submit"
+                    class="bussiness-btn-larg"
+                    value="Create Step"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="padding-top-large"></div>
+
+    <div class="business-blog-1x">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="business-title-left">
+              <h2>Achievements</h2>
+              <span class="title-border-left"></span>
+              <p>Click on a step to edit</p>
+            </div>
+          </div>
+          <!-- <div class="col-md-12">
+            <!-- <div class="margin-top-middle"></div> -->
+          <!-- </div> -->
+
+          <div v-for="step in goal.steps" class="col-md-3">
+            <div class="single-bolg hover01">
+              <div class="blog-content">
+                <router-link :to="`/steps/${step.id}/edit`"
+                  >{{ formattedDate(step.date) }} <br />
+                  {{ step.comment }}</router-link
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <h1>Goal: {{ goal.name }}</h1>
     <h2>Category: {{ goal.category }}</h2>
-    <p>From: {{ goal.begin_date }} Until: {{ goal.end_date }}</p>
+    <p>From: {{ this.begin_date }} Until: {{ this.end_date }}</p>
     <h3>SMART Description</h3>
     <p>{{ goal.description }}</p>
-    <img :src="goal.image_url" alt="" />
-    <router-link :to="`/goals/${goal.id}/edit`">Edit Goal</router-link>
+    <img :src="goal.image_url" alt="" /> -->
+    <!-- <router-link :to="`/goals/${goal.id}/edit`">Edit Goal</router-link> -->
 
-    <h2>Achievements</h2>
+    <!-- <h2>Achievements</h2>
     <div v-for="step in goal.steps">
       <router-link :to="`/steps/${step.id}/edit`"
-        >{{ step.date }} <br />
+        >{{ formattedDate(step.date) }} <br />
         {{ step.comment }}</router-link
       >
-    </div>
-    <p>Click on a step to edit</p>
-    <br />
-    <form v-on:submit.prevent="addStep()">
+    </div> -->
+    <!-- <p>Click on a step to edit</p>
+    <br /> -->
+    <!-- <form v-on:submit.prevent="addStep()">
       <h2>New Step</h2>
       <div class="form-group">
         <label>Date:</label>
@@ -34,7 +191,8 @@
         <textarea id="" cols="30" rows="10" v-model="comment"></textarea>
       </div>
       <input type="submit" class="btn btn-primary" value="Create Step" />
-    </form>
+    </form> -->
+    <!-- <canvas id="myChart" width="200" height="200"></canvas> -->
   </div>
 </template>
 
@@ -50,18 +208,15 @@ export default {
       date: "",
       comment: "",
       errors: [],
-      numSteps: "",
       goalDays: "",
-
-      // differenceInTime: "",
-      // differenceInDays: "",
+      begin_date: "",
+      end_date: "",
     };
   },
   created: function() {
     axios.get(`api/goals/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
       this.goal = response.data;
-      this.numSteps = response.data.steps.length;
       var subtractDays =
         moment(response.data.end_date)
           .toDate()
@@ -71,19 +226,10 @@ export default {
           .getTime();
       this.goalDays = subtractDays / 86400000 + 1;
       this.renderChart();
-
-      // // var date1 = new Date("06/30/2019");
-      // // var date2 = new Date("07/30/2019");
-
-      // // To calculate the time difference of two dates
-      // var endDate = response.data.end_date;
-      // var beginDate = response.data.begin_date;
-      // this.differenceInTime = endDate.getTime() - beginDate.getTime();
-      // this.differenceInTime =
-      // response.data.end_date.getTime() - response.data.begin_date.getTime();
-
-      // // To calculate the no. of days between two dates
-      // this.differenceInDays = this.differenceInTime / (1000 * 3600 * 24);
+      this.begin_date = moment(response.data.begin_date).format(
+        "MMMM, DD, YYYY"
+      );
+      this.end_date = moment(response.data.end_date).format("MMMM, DD, YYYY");
     });
   },
   methods: {
@@ -98,15 +244,17 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.goal.steps.push(response.data);
+          this.renderChart();
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
     },
-
+    formattedDate: function(date) {
+      return moment(date).format("MMMM, DD, YYYY");
+    },
     renderChart: function() {
       var ctx = document.getElementById("myChart").getContext("2d");
-
       var myChart = new Chart(ctx, {
         type: "bar",
         data: {
@@ -114,7 +262,7 @@ export default {
           datasets: [
             {
               label: "# of Steps",
-              data: [this.numSteps],
+              data: [this.goal.steps.length],
               backgroundColor: ["rgba(54, 162, 235, 0.2)"],
               borderColor: ["rgba(54, 162, 235, 1)"],
               borderWidth: 1,

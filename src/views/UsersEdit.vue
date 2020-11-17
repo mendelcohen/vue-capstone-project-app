@@ -63,7 +63,7 @@ export default {
         password_confirmation: this.user.password_confirmation
       };
       axios.patch(`/api/users/${this.user.id}`, params).then(response => {
-        this.$router.push("/users/:id");
+        this.$router.push("/users/me");
       }).catch(error => {
         this.errors = error.reponse.data.errors;
       });
