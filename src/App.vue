@@ -10,7 +10,7 @@
               >
                 <a class="navbar-brand" href="#">
                   <img
-                    src="images/logo-dark.png"
+                    src="https://ggsc.s3.amazonaws.com/images/made/videos/Parentingvideothumb_700_375_s_c1.png"
                     class="d-inline-block align-top"
                     alt=""
                   />
@@ -36,19 +36,19 @@
                         >My Profile</router-link
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <router-link to="/users/me/edit" class="nav-link" href="#"
                         >Edit Profile</router-link
                       >
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <router-link to="/goals" class="nav-link"
-                        >Goals Index</router-link
+                        >My Goals</router-link
                       >
                     </li>
                     <li class="nav-item">
                       <router-link to="/goals/new" class="nav-link" href="#"
-                        >Goals New</router-link
+                        >New Goal</router-link
                       >
                     </li>
                     <li class="nav-item">

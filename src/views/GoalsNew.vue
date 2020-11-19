@@ -1,65 +1,108 @@
 <template>
   <div class="goals-new">
-    <form v-on:submit.prevent="submit()">
-      <h1>Your new SMART goal!</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
+    <form v-on:submit.prevent="submit()" class="bussiness-contact-form">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="business-title-left">
+              <h2>Create a new goal</h2>
+              <span class="title-border-left"></span>
+            </div>
 
-      <div class="form-group">
-        <label>Select a category for your goal:</label>
-        <select name="category" v-model="categoryId">
-          <option selected disabled>Categories</option>
-          <option :value="category.id" v-for="category in categories">{{
-            category.name
-          }}</option>
-        </select>
-      </div>
+            <br />
+          </div>
 
-      <div class="form-group">
-        <label>Give your goal a name:</label>
-        <input type="text" class="form-control" v-model="name" />
-        <small>Max. 25 characters</small>
-      </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <select class="form-control" id="category" v-model="categoryId">
+                <option selected value="">Select a category</option>
+                <option :value="category.id" v-for="category in categories">{{
+                  category.name
+                }}</option>
+              </select>
+            </div>
+          </div>
 
-      <p>
-        Specific: What is your goal and when will you work on it?<br /><br />Measurable:
-        When can you say you have achieved your goal?<br /><br />Achievable:
-        What makes this goal challenging for you?<br /><br />Relevant: How will
-        you benefit when you succeed?<br /><br />Timetable:
-      </p>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                v-model="name"
+                placeholder="Give your goal a name"
+              />
+            </div>
+          </div>
 
-      <div class="form-group">
-        <label>Describe your SMART goal using the prompts:</label>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="description"
+                >Specific: What is your goal and when will you work on it?
+                <br />
+                Measurable: When can you say you have achieved your goal? <br />
+                Achievable: What makes this goal challenging for you?<br />
+                Relevant: How will you benefit when you succeed? <br />
+                Timetable: Which days are you aiming for?</label
+              >
+            </div>
+          </div>
 
-        <form action="/action_page.php">
-          <textarea
-            name="goal-description"
-            rows="16"
-            cols="100"
-            wrap="hard"
-            v-model="description"
-          >
-          </textarea>
-        </form>
-      </div>
-      <div class="form-group">
-        <label>Start date:</label>
-        <input type="date" class="form-control" v-model="begin_date" />
-      </div>
-      <br />
-      <div class="form-group">
-        <label>End date:</label>
-        <input type="date" class="form-control" v-model="end_date" />
-      </div>
-      <br />
-      <div class="form-group">
-        <label>Upload an image that inspires you to achieve your goal:</label>
-        <input type="image-upload" class="form-control" v-model="image_url" />
-      </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                id="description"
+                rows="4"
+                v-model="description"
+                placeholder="Enter your smart goal"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="start_date">Start Date</label>
+              <input
+                id="start_date"
+                type="date"
+                value="date.new"
+                class="form-control"
+                v-model="begin_date"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="end_date">End Date</label>
+              <input
+                id="end_date"
+                type="date"
+                value="date.new"
+                class="form-control"
+                v-model="end_date"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                v-model="image_url"
+                placeholder="Paste in an image url"
+              />
+            </div>
+          </div>
 
-      <label>You are ready to begin. Good luck!</label>
-      <input type="submit" class="btn btn-primary" value="Save" />
+          <div class="col-md-6">
+            <div class="form-group">
+              <button type="submit" class="btn bussiness-btn-larg">
+                Create Goal
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </template>

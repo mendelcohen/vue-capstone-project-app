@@ -4,18 +4,16 @@
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+      message: "",
     };
   },
   created: function() {},
-  methods: {}
+  methods: {},
 };
 </script>
-

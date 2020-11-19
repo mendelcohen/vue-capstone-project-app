@@ -6,8 +6,8 @@
     <div class="business-banner">
       <div class="hvrbox">
         <img
-          src="/images/slider-24.jpg"
-          alt="Mountains"
+          src="https://images.unsplash.com/photo-1548705085-101177834f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+          alt="Silhouette of Children"
           class="hvrbox-layer_bottom"
         />
         <div class="hvrbox-layer_top">
@@ -47,7 +47,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="business-cta-right-2">
                 <router-link
                   :to="`/goals/${goal.id}/edit`"
@@ -59,40 +59,13 @@
           </div>
 
           <div class="col-md-3">
-            <div class="padding-top-large"></div>
+            <div class="padding-top-small"></div>
             <div class="about-company-right">
               <div class="company-help-box text-center">
                 <canvas id="myChart" width="200" height="200"></canvas>
               </div>
             </div>
           </div>
-
-          <!-- <div class="padding-top-large"></div> -->
-
-          <!-- <div class="col-md-4">
-            <div class="business-cta-right-2">
-              <a href="#" class="bussiness-btn-larg"
-                >Get a Quote <i class="fa fa-angle-right"></i>
-              </a>
-            </div>
-          </div> -->
-
-          <!-- <form v-on:submit.prevent="addStep()">
-            <h2>New Step</h2>
-            <div class="form-group">
-              <label>Date:</label>
-              <input type="date" value="date.new" v-model="date" />
-            </div>
-            <div class="form-group">
-              <label>Day number:</label>
-              <input type="integer" value="" />
-            </div>
-            <div class="form-group">
-              <label>Comment:</label>
-              <textarea id="" cols="30" rows="10" v-model="comment"></textarea>
-            </div>
-            <input type="submit" class="btn btn-primary" value="Create Step" />
-          </form> -->
 
           <form v-on:submit.prevent="addStep()">
             <div class="business-contact-form">
@@ -116,11 +89,9 @@
                 </div>
 
                 <div class="col-md-12">
-                  <input
-                    type="submit"
-                    class="bussiness-btn-larg"
-                    value="Create Step"
-                  />
+                  <button type="submit" class="btn bussiness-btn-larg">
+                    Create Step
+                  </button>
                 </div>
               </div>
             </div>
@@ -129,7 +100,7 @@
       </div>
     </div>
 
-    <div class="padding-top-large"></div>
+    <br />
 
     <div class="business-blog-1x">
       <div class="container">
@@ -141,9 +112,6 @@
               <p>Click on a step to edit</p>
             </div>
           </div>
-          <!-- <div class="col-md-12">
-            <!-- <div class="margin-top-middle"></div> -->
-          <!-- </div> -->
 
           <div v-for="step in goal.steps" class="col-md-3">
             <div class="single-bolg hover01">
