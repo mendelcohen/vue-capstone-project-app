@@ -3,20 +3,20 @@
     <div class="business-banner">
       <div class="hvrbox">
         <img
-          src="https://images.unsplash.com/photo-1548705085-101177834f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+          src="https://ggsc.s3.amazonaws.com/images/made/videos/Parentingvideothumb_700_375_s_c1.png"
           alt="Silhouette of Children"
           class="hvrbox-layer_bottom"
         />
         <div class="hvrbox-layer_top">
           <div class="container">
             <div class="overlay-text text-left">
-              <h3>My Account</h3>
+              <h3>Parenting Goals</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
+                  <!-- <li class="breadcrumb-item active" aria-current="page">
                     My Account
-                  </li>
+                  </li> -->
                 </ol>
               </nav>
             </div>
