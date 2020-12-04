@@ -22,9 +22,11 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="business-title-middle">
-                <h2>{{ category.name }}</h2>
-                <span class="title-border-middle"></span>
+              <div class="project-quick-info">
+                <div class="business-title-middle">
+                  <h2>{{ category.name }}</h2>
+                  <span class="title-border-middle"></span>
+                </div>
               </div>
             </div>
 
@@ -32,26 +34,26 @@
               <div class="margin-top-middle"></div>
             </div>
 
-            <div v-for="goal in goals">
-              <div v-if="goal.category == category.name">
-                <div class="col-md-6">
-                  <div class="single-bolg hover01">
-                    <figure>
-                      <img :src="goal.image_url" alt="slide 1" class="" />
-                    </figure>
-                    <div class="blog-content">
-                      <router-link :to="`/goals/${goal.id}`">
-                        <p>{{ goal.name }}</p></router-link
-                      >
+            <div
+              class="col-md-4"
+              v-for="goal in goals"
+              v-if="goal.category == category.name"
+            >
+              <div class="single-bolg hover01">
+                <figure>
+                  <img :src="goal.image_url" alt="slide 1" class="" />
+                </figure>
+                <div class="blog-content">
+                  <router-link :to="`/goals/${goal.id}`">
+                    <p>{{ goal.name }}</p></router-link
+                  >
 
-                      <span
-                        ><p>
-                          {{ formattedDate(goal.begin_date) }} -
-                          {{ formattedDate(goal.end_date) }}
-                        </p></span
-                      >
-                    </div>
-                  </div>
+                  <span
+                    ><p>
+                      {{ formattedDate(goal.begin_date) }} -
+                      {{ formattedDate(goal.end_date) }}
+                    </p></span
+                  >
                 </div>
               </div>
             </div>
