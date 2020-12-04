@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Home from '../views/Login.vue';
 import Signup from '../views/Signup.vue';
-import Login from "../views/Login.vue";
+// import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import UsersShow from "../views/UsersShow.vue";
 import UsersEdit from "../views/UsersEdit.vue";
@@ -34,9 +34,9 @@ const routes = [
     component: Signup
   },
   { 
-    path: "/login", 
+    path: "/login",
     name: "login", 
-    component: Login 
+    component: Home
   },
   { 
     path: "/users/me", 
