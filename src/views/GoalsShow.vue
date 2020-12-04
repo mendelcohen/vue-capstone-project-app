@@ -6,7 +6,7 @@
     <div class="business-banner">
       <div class="hvrbox">
         <img
-          src="https://images.unsplash.com/photo-1548705085-101177834f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+          src="https://ggsc.s3.amazonaws.com/images/made/videos/Parentingvideothumb_700_375_s_c1.png"
           alt="Silhouette of Children"
           class="hvrbox-layer_bottom"
         />
@@ -59,7 +59,7 @@
           </div>
 
           <div class="col-md-3">
-            <div class="padding-top-small"></div>
+            <div class="padding-top-large"></div>
             <div class="about-company-right">
               <div class="company-help-box text-center">
                 <canvas id="myChart" width="200" height="200"></canvas>
@@ -69,7 +69,7 @@
 
           <form v-on:submit.prevent="addStep()">
             <div class="business-contact-form">
-              <h2>New Step</h2>
+              <h2>New Step: record your achievements</h2>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -100,12 +100,12 @@
       </div>
     </div>
 
-    <br />
+    <div class="padding-top-large"></div>
 
     <div class="business-blog-1x">
       <div class="container">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="business-title-left">
               <h2>Achievements</h2>
               <span class="title-border-left"></span>
@@ -114,14 +114,14 @@
           </div>
 
           <div v-for="step in goal.steps" class="col-md-3">
-            <div class="single-bolg hover01">
-              <div class="blog-content">
-                <router-link :to="`/steps/${step.id}/edit`"
-                  >{{ formattedDate(step.date) }} <br />
-                  {{ step.comment }}</router-link
-                >
-              </div>
+            <!-- <div class="single-bolg hover01"> -->
+            <div class="blog-content">
+              <router-link :to="`/steps/${step.id}/edit`"
+                >{{ formattedDate(step.date) }} <br />
+                {{ step.comment }}</router-link
+              >
             </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
