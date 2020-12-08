@@ -67,7 +67,7 @@
                 </div>
                 <div class="form-group">
                   <input
-                    type="string"
+                    type="password"
                     class="form-control"
                     id="exampleInputPassword2"
                     placeholder="Password"
@@ -76,7 +76,7 @@
                 </div>
                 <div class="form-group">
                   <input
-                    type="string"
+                    type="password"
                     class="form-control"
                     id="exampleInputPassword2"
                     placeholder="Password confirmation"
@@ -179,6 +179,7 @@ export default {
           this.$router.push("/login");
         })
         .catch((error) => {
+          console.log(error);
           this.errors = error.response.data.errors;
         });
     },
